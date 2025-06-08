@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f7fa;
+      display: flex;
+    }
+
+    /* Sidebar gris (hover para mostrar texto) */
+    .sidebar {
+      width: 60px;
+      background-color: #e4e8ee;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      transition: width 0.3s ease;
+      overflow-x: hidden;
+      z-index: 1;
+    }
+
+    .sidebar:hover {
+      width: 220px;
+    }
+
+    .sidebar:hover .menu-label {
+      display: inline;
+    }
+
+    .sidebar:hover .menu-icon {
+      justify-content: flex-start;
+      padding-left: 20px;
+    }
+
+    .menu-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 0;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .menu-icon:hover {
+      background-color: #d3d8e0;
+    }
+
+    .menu-label {
+      display: none;
+      margin-left: 10px;
+      font-size: 14px;
+    }
+
+    /* Main content */
+    .main {
+      margin-left: 60px;
+      padding: 20px 40px;
+      flex-grow: 1;
+      transition: margin-left 0.3s ease;
+    }
+
+    /* Top nav button */
+    .menu-toggle {
+      position: fixed;
+      top: 10px;
+      left: 70px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 2;
+      background-color: white;
+      border-radius: 6px;
+      padding: 6px 10px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    }
+
+    /* White slide-out panel */
+    .menu-panel {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100vh;
+      background-color: white;
+      box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+      transition: left 0.3s ease;
+      z-index: 3;
+      padding: 20px;
+    }
+
+    .menu-panel.open {
+      left: 60px;
+    }
+
+    .menu-panel h3 {
+      margin-top: 0;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .menu-panel .section-title {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .menu-panel .menu-link {
+      display: block;
+      padding: 8px 0;
+      text-decoration: none;
+      color: #333;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .greeting {
+      background-color: #0074e4;
+      color: white;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .greeting h1 {
+      margin: 0 0 20px;
+      font-size: 28px;
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .search-bar input, .search-bar select {
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: none;
+      width: 250px;
+    }
+
+    .section {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .section h2 {
+      margin-top: 0;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      background-color: #0065d1;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .xp-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .xp-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .xp-list span {
+      font-weight: 500;
+    }
+
+    .video-placeholder {
+      height: 150px;
+      background-color: #edf0f5;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #666;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        padding: 20px;
+      }
+
+      .search-bar {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .search-bar input, .search-bar select {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar gris -->
+  <div class="sidebar">
+    <div class="menu-icon"><span>📹</span><span class="menu-label">Videos</span></div>
+    <div class="menu-icon"><span>📃</span><span class="menu-label">Listas de reproducción</span></div>
+    <div class="menu-icon"><span>🧠</span><span class="menu-label">Flashcards</span></div>
+    <div class="menu-icon"><span>❓</span><span class="menu-label">Preguntas</span></div>
+    <div class="menu-icon"><span>📅</span><span class="menu-label">Plan de estudio</span></div>
+    <div class="menu-icon"><span>🃏</span><span class="menu-label">Barajas</span></div>
+  </div>
+
+  <!-- Botón hamburguesa -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <!-- Panel blanco lateral -->
+  <div class="menu-panel" id="menuPanel">
+    <h3>👤 Carlos C.</h3>
+    <div class="menu-link" onclick="irInicio()">🏠 Inicio</div>
+
+    <div class="section-title">Mis herramientas</div>
+    <div class="menu-link">📹 Videos</div>
+    <div class="menu-link">📃 Listas de reproducción</div>
+    <div class="menu-link">🧠 Flashcards</div>
+    <div class="menu-link">❓ Preguntas</div>
+    <div class="menu-link">📅 Plan de estudio</div>
+    <div class="menu-link">🃏 Barajas</div>
+
+    <div class="section-title">Otros</div>
+    <div class="menu-link">⚙️ Ajustes</div>
+    <div class="menu-link">📞 Centro de ayuda</div>
+    <div class="menu-link">🔒 Privacidad</div>
+    <div class="menu-link" onclick="cerrarSesion()">🚪 Cerrar sesión</div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="main" id="mainContent">
+    <div class="greeting">
+      <h1>¡Hola, Carlos!</h1>
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar por un tema...">
+        <select>
+          <option>Ver todos los temas</option>
+          <option>Anatomía</option>
+          <option>Fisiología</option>
+          <option>Patología</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Práctica diaria</h2>
+      <p><strong>Información adicional</strong></p>
+      <button class="btn">Iniciar cuestionario</button>
+    </div>
+
+    <div class="section">
+      <h2>Clasificación (06/08 - 06/15)</h2>
+      <ul class="xp-list">
+        <li><span>1. Antonio R.</span> <span>17 XP</span></li>
+        <li><span>2. Vanessa A.</span> <span>16 XP</span></li>
+        <li><span>3. Adrian C.</span> <span>12 XP</span></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Videos recomendados</h2>
+      <div class="video-placeholder">
+        Mira un video para comenzar a ver recomendaciones aquí.
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function toggleMenu() {
+      const panel = document.getElementById('menuPanel');
+      panel.classList.toggle('open');
+    }
+
+    function cerrarSesion() {
+      window.location.href = "index.html";
+    }
+
+    function irInicio() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById('menuPanel').classList.remove('open');
+    }
+  </script>
+
+</body>
+</html>

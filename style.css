@@ -1,0 +1,342 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Layout base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #2c3e50;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.login-btn {
+  background-color: #3498db;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  background: url('https://img.freepik.com/foto-gratis/grupo-medicos-especialistas-reunion-oficina_1303-21238.jpg') no-repeat center center/cover;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta {
+  background-color: #3498db;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Features */
+.features {
+  padding: 50px 20px;
+  text-align: center;
+  background: #fff;
+}
+
+.feature-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.card {
+  background: #f1f1f1;
+  padding: 20px;
+  border-radius: 8px;
+  width: 280px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+  background: #2c3e50;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
+}
+.nosotros {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.nosotros p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: auto;
+  color: #444;
+}
+
+.proposito {
+  background-color: #eef2f7;
+  padding: 60px 20px;
+}
+
+.proposito-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
+  gap: 30px;
+}
+
+.proposito .texto {
+  flex: 1;
+  min-width: 300px;
+}
+
+.proposito .texto h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.proposito .texto p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.proposito .video {
+  flex: 1;
+  min-width: 300px;
+}
+.login-minimal {
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.login-box button:hover {
+  background-color: #004499;
+}
+
+.login-box .volver {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+  text-decoration: none;
+}
+
+.login-box .volver:hover {
+  text-decoration: underline;
+}
+.divider {
+  text-align: center;
+  margin: 1.5rem 0 1rem;
+  color: #aaa;
+  font-size: 0.9rem;
+  position: relative;
+}
+.divider::before, .divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ddd;
+}
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.social-login button {
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.3rem 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.social-login .google {
+  border-color: #db4437;
+  color: #db4437;
+}
+.social-login .apple {
+  border-color: #333;
+  color: #333;
+}
+.social-login .facebook {
+  border-color: #1877f2;
+  color: #1877f2;
+}
+
+.social-login button:hover {
+  background: #f0f0f0;
+}
+
+.extra-links {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+.extra-links a {
+  color: #0056b3;
+  text-decoration: none;
+}
+.extra-links a:hover {
+  text-decoration: underline;
+}
+ 
+/* CSS para la página additional_info.html */
+#additional-info-container {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#additional-info-card {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+}
+
+#additional-info-card h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.additional-info-form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.additional-info-form-group label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.additional-info-form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+#additional-info-submit {
+    background: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#additional-info-submit:hover {
+    background: #0056b3;
+}
